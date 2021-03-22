@@ -3,3 +3,34 @@
 * {
   font-family: 'Montserrat', sans-serif;
 }
+
+.home {
+  background-color: #F2F2F2;
+}
+
+.header {
+  background: #252525;
+  color: #FFFFFF;
+  padding: 30px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo span {
+  letter-spacing: 3.7px;
+}
+
+.cta a {
+  color: #FAC800;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+.cta a:hover {
+  text-decoration: underline;
+}
+
+
