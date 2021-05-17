@@ -1,7 +1,7 @@
 import logo from '../assets/img/logo.png';
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({handleLogout}) => {
   return (
     <div className="d-flex flex-wrap justify-content-between">
       <div className="logo">
@@ -10,6 +10,7 @@ const Navbar = () => {
       </div>
       <div className="cta d-flex align-items-center">
         <Link to={'/'}>ALL PROJECTS</Link>
+        <button type="button" className="btn sign-out" onClick={handleLogout}>LOG OUT</button>
       </div>
     </div>
   );

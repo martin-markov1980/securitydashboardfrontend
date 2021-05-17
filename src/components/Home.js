@@ -1,7 +1,7 @@
 import ProjectsList from "./ProjectsList";
 
   const Home = ({data, isLoading, errorMessage}) => {
-  console.log(data);
+  
   return (
     <div>
       { errorMessage && <div>{ errorMessage }</div> }

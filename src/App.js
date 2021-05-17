@@ -1,84 +1,100 @@
 import Home from './components/Home';
 import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SingleProject from './components/SingleProject';
-import { useEffect, useState } from "react";
+import useFetch from './services/useFetchProjectsData';
+import { useState, useEffect } from 'react';
+import fire from './fire';
+import Login from './Login';
 
 function App() {
 
-  const [data, setData] = useState(null);
-  const [isLoading, setLoading] = useState(true);
-  const [errorMessage, setMessage] = useState(null);
+  const [data, isLoading, errorMessage] = useFetch('https://access-security-dashboard.herokuapp.com/api/json');
 
-  // Fetching the projects data from the endpoint
+  const [user, setUser] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   useEffect(() => {
-
-    let myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-    let urlencoded = new URLSearchParams();
-    urlencoded.append("token", "S63ztyBQROGHLRyLctgel7GGFq7Kaozj");
-    let requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: urlencoded,
-      redirect: 'follow'
+    const authListener = () => {
+      fire.auth().onAuthStateChanged((user) => {
+        if (user) {
+          clearInputs();
+          setUser(user);
+        } else {
+          setUser('');
+        }
+      });
     };
+    authListener();
+  }, [])
 
-    const abortCont = new AbortController();
+  const handleLogout = () => {
+    fire.auth().signOut();
+  };
 
-    fetch('https://access-security-dashboard.herokuapp.com/api/json', requestOptions, abortCont)
-      .then(res => {
-        if (!res.ok) {
-          throw Error(`Can't fetch data from that resource`);
-        } else {
-          return res.json()
-        }
+  
 
-      })
-      .then(data => {
-        setLoading(false);
-        setMessage(null);
-        setData(JSON.parse(data));
-      })
+  const clearInputs = () => {
+    setEmail('');
+    setPassword('');
+  };
+
+  const clearErrors = () => {
+    setEmailError('');
+    setPasswordError('');
+  };
+
+  const handleLogin = () => {
+    clearErrors();
+    fire
+      .auth()
+      .signInWithEmailAndPassword(email, password)
       .catch((err) => {
-        if (err.name === 'AbortError') {
-          console.log('fetch aborted');
-        } else {
-          setData(null);
-          setLoading(false);
-          setMessage(err.message);
+        switch (err.code) {
+          case 'auth/invalid-email':
+          case 'auth/user-disabled':
+          case 'auth/user-not-found':
+            setEmailError(err.message);
+            break;
+          case 'auth/wrong-password':
+            setPassword(err.password);
+            break;
+          default:
+            break;
         }
-      })
-
-    return () => { abortCont.abort() }
-
-    // eslint-disable-next-line
-  }, ['https://access-security-dashboard.herokuapp.com/api/json']);
-
+      });
+  };
+ 
   return (
-    <Router>
-      <div>
-        <div className="nav">
+    user ?
+      <Router>
+        <div>
+          <div className="nav">
+            <div className="container">
+              <Navbar handleLogout={handleLogout} />
+            </div>
+          </div>
           <div className="container">
-            <Navbar />
+            <Switch>
+              <Route exact path='/'>
+                <Home data={data} isLoading={isLoading} errorMessage={errorMessage} />
+              </Route>
+              <Route path='/projects/:name'>
+                {errorMessage && <div>{errorMessage}</div>}
+                {isLoading && 'Loading...'}
+                {data && <SingleProject data={data} />}
+              </Route>
+            </Switch>
           </div>
         </div>
-        <div className="container">
-          <Switch>
-            <Route exact path='/'>
-              <Home data={data} isLoading={isLoading} errorMessage={errorMessage} />
-            </Route>
-            <Route path='/projects/:name'>
-              {errorMessage && <div>{errorMessage}</div>}
-              {isLoading === true && 'Loading...'}
-              {data && <SingleProject data={data} />}
-            </Route>
-          </Switch>
-        </div>
-      </div>
-    </Router>
+      </Router>
+      : 
+      data && <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} emailError={emailError} passwordError={passwordError} />
+      
   );
-}
+};
 
 export default App;
