@@ -1,7 +1,8 @@
 import logo from '../assets/img/logo.png';
 import { Link } from "react-router-dom";
 
-const Navbar = ({handleLogout}) => {
+const Navbar = ({ handleLogout }) => {
+
   return (
     <div className="d-flex flex-wrap justify-content-between">
       <div className="logo">
@@ -14,6 +15,7 @@ const Navbar = ({handleLogout}) => {
       </div>
     </div>
   );
+
 }
 
 export default Navbar;

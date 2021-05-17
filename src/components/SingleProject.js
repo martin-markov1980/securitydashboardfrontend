@@ -45,6 +45,7 @@ const SingleProject = ({ data }) => {
       <ScrollToTop smooth />
     </div>
   );
+
 }
 
 export default SingleProject;

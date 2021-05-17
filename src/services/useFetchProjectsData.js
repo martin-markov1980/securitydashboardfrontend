@@ -8,7 +8,6 @@ const useFetch = (url) => {
 
   // Fetching the projects data from the endpoint
   useEffect(() => {
-
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
     let urlencoded = new URLSearchParams();
@@ -23,15 +22,14 @@ const useFetch = (url) => {
     const abortCont = new AbortController();
 
     fetch(url, requestOptions, abortCont)
-      .then(res => {
+      .then((res) => {
         if (!res.ok) {
           throw Error(`Can't fetch data from that resource`);
         } else {
-          return res.json()
+          return res.json();
         }
-
       })
-      .then(data => {
+      .then((data) => {
         setLoading(false);
         setMessage(null);
         setData(JSON.parse(data));
@@ -46,12 +44,12 @@ const useFetch = (url) => {
         }
       })
 
-    return () => { abortCont.abort() }
+    return () => { abortCont.abort() };
 
     // eslint-disable-next-line
   }, ['https://access-security-dashboard.herokuapp.com/api/json']);
 
-  return [data, isLoading, errorMessage];
+  return { data, isLoading, errorMessage };
 
 }
 

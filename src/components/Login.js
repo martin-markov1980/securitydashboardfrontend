@@ -1,10 +1,6 @@
-// import Delay from 'react-delay-render';
-
 const Login = (props) => {
 
   const { email, setEmail, password, setPassword, handleLogin, emailError, passwordError } = props;
-
-  
 
   return (
     <section className='login'>
@@ -20,9 +16,8 @@ const Login = (props) => {
         </div>
       </div>
     </section>
-  )
-  
+  );
+
 }
 
 export default Login;
-// export default Delay({ delay: 500 })(Login);

@@ -29,17 +29,17 @@ const SecurityModules = ({ projects, name }) => {
                   <td>{recomendetVersion}</td>
                   <td><a href={link} target="_blank" rel="noreferrer" className="btn btn-dark">Module</a></td>
                 </tr>
-              )
+              );
 
             })
 
             : false
 
           : false
-      )
+      );
 
     })
-  )
+  );
 }
 
 export default SecurityModules;

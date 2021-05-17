@@ -1,6 +1,6 @@
 import firebase from "firebase";
 
-var firebaseConfig = {
+let firebaseConfig = {
   apiKey: "AIzaSyDgJQllG_nArin7Pi1Kovn8z_3Gl5rMXlY",
   authDomain: "security-dashboard-8d43e.firebaseapp.com",
   projectId: "security-dashboard-8d43e",
