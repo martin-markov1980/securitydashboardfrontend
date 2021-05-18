@@ -44,6 +44,12 @@
   box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);
 }
 
+.loginTitle {
+  color: white;
+  text-align: center;
+  padding-bottom: 20px;
+} 
+
 .login .loginContainer label {
   color: white;
   margin: 14px 0;

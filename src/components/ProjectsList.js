@@ -46,7 +46,7 @@ const ProjectsList = ({ data, title }) => {
                 <td>{projectNumber++}</td>
                 <td>{projectName}</td>
                 <td>{projectCoreVersion}</td>
-                <td><Link to={`/projects/${projectName}`}><button type="button" className="btn btn-dark">view</button></Link></td>
+                <td><Link to={`/securitydashboardfrontend/projects/${projectName}`}><button type="button" className="btn btn-dark">view</button></Link></td>
               </tr>
             );
 

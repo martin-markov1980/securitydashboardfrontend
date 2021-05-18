@@ -23,10 +23,10 @@ function App() {
           </div>
           <div className="container">
             <Switch>
-              <Route exact path='/'>
+              <Route exact path='/securitydashboardfrontend'>
                 <Home data={data} isLoading={isLoading} errorMessage={errorMessage} />
               </Route>
-              <Route path='/projects/:name'>
+              <Route path='/securitydashboardfrontend/projects/:name'>
                 {errorMessage && <div>{errorMessage}</div>}
                 {isLoading && 'Loading...'}
                 {data && <SingleProject data={data} />}

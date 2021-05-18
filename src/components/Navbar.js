@@ -10,7 +10,7 @@ const Navbar = ({ handleLogout }) => {
         <span>security dashboard</span>
       </div>
       <div className="cta d-flex align-items-center">
-        <Link to={'/'}>ALL PROJECTS</Link>
+        <Link to={'/securitydashboardfrontend'}>ALL PROJECTS</Link>
         <button type="button" className="btn sign-out" onClick={handleLogout}>LOG OUT</button>
       </div>
     </div>
