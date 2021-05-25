@@ -5,12 +5,24 @@ import SingleProject from './components/SingleProject';
 import useFetch from './services/useFetchProjectsData';
 import Login from './components/Login';
 import useLoginLogic from './services/useLoginLogic';
+import { useState, useEffect } from 'react';
 
 function App() {
+
+  
 
   const { data, isLoading, errorMessage } = useFetch('https://access-security-dashboard.herokuapp.com/api/json');
 
   const { user, email, setEmail, password, setPassword, emailError, passwordError, handleLogin, handleLogout } = useLoginLogic();
+
+  const [status, setStatus] = useState(false);
+
+  useEffect(() => {
+    function myFunction() {
+      setTimeout(function(){ setStatus(true) }, 500);
+    }
+    myFunction()
+  }, []);
 
   return (
     user ?
@@ -36,7 +48,7 @@ function App() {
         </div>
       </Router>
       :
-      data && <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} emailError={emailError} passwordError={passwordError} />
+      status && <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} emailError={emailError} passwordError={passwordError} />
   );
 
 };
