@@ -9,11 +9,9 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
-  
+  const { user, email, setEmail, password, setPassword, emailError, passwordError, handleLogin, handleLogout } = useLoginLogic();
 
   const { data, isLoading, errorMessage } = useFetch('https://access-security-dashboard.herokuapp.com/api/json');
-
-  const { user, email, setEmail, password, setPassword, emailError, passwordError, handleLogin, handleLogout } = useLoginLogic();
 
   const [status, setStatus] = useState(false);
 

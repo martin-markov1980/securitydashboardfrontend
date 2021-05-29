@@ -11,7 +11,7 @@ const useFetch = (url) => {
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
     let urlencoded = new URLSearchParams();
-    urlencoded.append("token", process.env.REACT_APP_FECTH_DATA);
+    urlencoded.append("token", process.env.REACT_APP_FETCH_DATA_TOKEN);
     let requestOptions = {
       method: 'POST',
       headers: myHeaders,
