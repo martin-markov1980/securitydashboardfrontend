@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
+    "env-cmd": "^10.1.0",
     "firebase": "^8.6.1",
     "react": "^17.0.1",
     "react-delay-render": "^0.1.2",
@@ -20,7 +21,8 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
+    "start-prod": "env-cmd -f .env.production react-scripts start",
+    "start-dev": "env-cmd -f .env.development.local react-scripts start",
     "build": "react-scripts build && cp build/index.html build/404.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,6 +46,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0"
+    "gh-pages": "^3.2.0"
   }
 }
