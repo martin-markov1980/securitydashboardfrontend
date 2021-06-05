@@ -6,13 +6,13 @@
 
 3 - Navigate to the root of the project and run `npm install`.
 
-4 - Create `.env.development.local` file out of the `.env.production` file with the following command `cp .env.production .env.development.local`.
+4 - Create `.env.development` file out of the `.env` file with the following command `cp .env .env.development`.
 
-5 - Get all variables values needed for the new `.env.development.local` file you just created from Bitwarden under the project name `security-dashboard`, and make sure you use them only in the `.env.development.local` file and not in the `.env.production` file due to security reasons.
+5 - Get all variables values needed for the new `.env.development` file you just created from Bitwarden under the project name `security-dashboard`, and make sure you use them only in the `.env.development` file and not in the `.env` file due to security reasons.
 
 # Available Scripts
 
-1 - `npm run start-dev` this command will start a dev environment using the `.env.development.local` file.
+1 - `npm run start` this command will start the project using the `.env.development` file.
 
 2 - Press `ctrl + c` this command will stop the app.
 
