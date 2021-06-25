@@ -2,16 +2,13 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SingleProject from './components/SingleProject';
-import useFetch from './services/useFetchProjectsData';
 import Login from './components/Login';
 import useLoginLogic from './services/useLoginLogic';
 import { useState, useEffect } from 'react';
 
 function App() {
 
-  const { user, email, setEmail, password, setPassword, emailError, passwordError, handleLogin, handleLogout } = useLoginLogic();
-
-  const { data, isLoading, errorMessage } = useFetch('https://access-security-dashboard.herokuapp.com/api/json');
+  const { user, email, setEmail, password, setPassword, emailError, passwordError, handleLogin, handleLogout, data, isLoading, errorMessage } = useLoginLogic('https://access-security-dashboard.herokuapp.com/api/json');
 
   const [status, setStatus] = useState(false);
 

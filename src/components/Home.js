@@ -5,7 +5,7 @@ const Home = ({ data, isLoading, errorMessage }) => {
   return (
     <div>
       { errorMessage && <div>{errorMessage}</div>}
-      { isLoading === true && 'Loading...'}
+      { isLoading && 'Loading...'}
       { data && <ProjectsList data={data} title={'Projects'} />}
     </div>
   );
