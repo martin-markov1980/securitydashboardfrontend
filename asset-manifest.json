@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/securitydashboardfrontend/static/css/main.91621880.chunk.css",
+    "main.js": "/securitydashboardfrontend/static/js/main.4ebeea5e.chunk.js",
+    "main.js.map": "/securitydashboardfrontend/static/js/main.4ebeea5e.chunk.js.map",
+    "runtime-main.js": "/securitydashboardfrontend/static/js/runtime-main.36248e95.js",
+    "runtime-main.js.map": "/securitydashboardfrontend/static/js/runtime-main.36248e95.js.map",
+    "static/js/2.5ee734c3.chunk.js": "/securitydashboardfrontend/static/js/2.5ee734c3.chunk.js",
+    "static/js/2.5ee734c3.chunk.js.map": "/securitydashboardfrontend/static/js/2.5ee734c3.chunk.js.map",
+    "index.html": "/securitydashboardfrontend/index.html",
+    "static/css/main.91621880.chunk.css.map": "/securitydashboardfrontend/static/css/main.91621880.chunk.css.map",
+    "static/js/2.5ee734c3.chunk.js.LICENSE.txt": "/securitydashboardfrontend/static/js/2.5ee734c3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.36248e95.js",
+    "static/js/2.5ee734c3.chunk.js",
+    "static/css/main.91621880.chunk.css",
+    "static/js/main.4ebeea5e.chunk.js"
+  ]
+}
