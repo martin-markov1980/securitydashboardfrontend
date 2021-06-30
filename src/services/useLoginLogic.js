@@ -33,7 +33,7 @@ const useLoginLogic = (url) => {
             method: 'POST',
             headers: myHeaders,
             body: urlencoded,
-            redirect: 'follow'
+            redirect: 'follow',
           };
 
           const abortCont = new AbortController();
@@ -69,7 +69,7 @@ const useLoginLogic = (url) => {
       });
     };
     authListener();
-  }, ['https://access-security-dashboard.herokuapp.com/api/json']);
+  });
 
   const clearErrors = () => {
     setEmailError('');

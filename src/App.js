@@ -4,20 +4,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SingleProject from './components/SingleProject';
 import Login from './components/Login';
 import useLoginLogic from './services/useLoginLogic';
-import { useState, useEffect } from 'react';
 
 function App() {
 
   const { user, email, setEmail, password, setPassword, emailError, passwordError, handleLogin, handleLogout, data, isLoading, errorMessage } = useLoginLogic('https://access-security-dashboard.herokuapp.com/api/json');
-
-  const [status, setStatus] = useState(false);
-
-  useEffect(() => {
-    function myFunction() {
-      setTimeout(function(){ setStatus(true) }, 500);
-    }
-    myFunction()
-  }, []);
 
   return (
     user ?
@@ -43,7 +33,7 @@ function App() {
         </div>
       </Router>
       :
-      status && <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} emailError={emailError} passwordError={passwordError} />
+      data && <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} emailError={emailError} passwordError={passwordError} />
   );
 
 };

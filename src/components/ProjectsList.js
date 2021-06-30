@@ -5,6 +5,11 @@ const ProjectsList = ({ data, title }) => {
 
   // Last time the backend has updated the projects info  
   let lastUpdateTime = data[0][0];
+  lastUpdateTime = lastUpdateTime.split('/')
+  let day = Number(lastUpdateTime[1]) < 10 ? `0${lastUpdateTime[1]}/` : `${lastUpdateTime[1]}/`;
+  let month = Number(lastUpdateTime[0]) < 10 ? `0${lastUpdateTime[0]}/`: `${lastUpdateTime[0]}/`;
+  lastUpdateTime[0] = day;
+  lastUpdateTime[1] = month;
 
   // Initializing React key for every time looping through an array as React required this
   let projectNumber = 1;
