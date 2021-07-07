@@ -8,13 +8,13 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
-  const { user, email, setEmail, password, setPassword, emailError, passwordError, handleLogin, handleLogout, data, isLoading, errorMessage } = useLoginLogic('https://access-security-dashboard.herokuapp.com/api/json');
+  const { user, email, setEmail, password, setPassword, emailError, passwordError, handleLogin, handleLogout, data, isLoading, errorMessage } = useLoginLogic('http://ec2-18-130-46-80.eu-west-2.compute.amazonaws.com:51000/api/json');
 
   const [status, setStatus] = useState(false);
 
   useEffect(() => {
     function myFunction() {
-      setTimeout(function(){ setStatus(true) }, 500);
+      setTimeout(function(){ setStatus(true) }, 1000);
     }
     myFunction()
   }, []);
