@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
-  const { user, email, setEmail, password, setPassword, emailError, passwordError, handleLogin, handleLogout, data, isLoading, errorMessage } = useLoginLogic('http://ec2-18-130-46-80.eu-west-2.compute.amazonaws.com:51000/api/json');
+  const { user, email, setEmail, password, setPassword, emailError, passwordError, handleLogin, handleLogout, data, isLoading, errorMessage } = useLoginLogic('https://aws.weareaccess.co.uk/sdb/api/json');
 
   const [status, setStatus] = useState(false);
 
